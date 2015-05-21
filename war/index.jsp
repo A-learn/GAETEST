@@ -47,18 +47,6 @@
 	
 %>
 
-<% if(checkParam){
-	if(chinese>=60){
-%>
-	<p>國文及格=><%=chinese+"分" %></p>
-<%
-	}else{
-%>
-	<p>國文<font color="red">不及格=><%=chinese+"分" %></font></p>
-<%
-	}
-}
-%>
 
 <% if(checkParam){
 	if(chinese>=60){

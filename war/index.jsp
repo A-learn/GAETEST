@@ -88,26 +88,26 @@
 %>
 
 <% if(checkParam){
-	if(chinese>=60){
+	if(science>=60){
 %>
-	<p>自然及格=><%=chinese+"分" %></p><%--輸出字串常數、變數 --%>
+	<p>自然及格=><%=science+"分" %></p><%--輸出字串常數、變數 --%>
 <%
 	}else{
 %>
-	<p>自然<font color="red">不及格=><%=chinese+"分" %></font></p><%--輸出字串常數、變數 --%>
+	<p>自然<font color="red">不及格=><%=science+"分" %></font></p><%--輸出字串常數、變數 --%>
 <%
 	}
 }
 %>
 
 <% if(checkParam){
-	if(chinese>=60){
+	if(history>=60){
 %>
-	<p>社會及格=><%=chinese+"分" %></p><%--輸出字串常數、變數 --%>
+	<p>社會及格=><%=history+"分" %></p><%--輸出字串常數、變數 --%>
 <%
 	}else{
 %>
-	<p>社會<font color="red">不及格=><%=chinese+"分" %></font></p><%--輸出字串常數、變數 --%>
+	<p>社會<font color="red">不及格=><%=history+"分" %></font></p><%--輸出字串常數、變數 --%>
 <%
 	}
 }

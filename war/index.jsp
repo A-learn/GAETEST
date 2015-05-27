@@ -2,6 +2,8 @@
     pageEncoding="UTF-8"%>
 <%@ page import="java.io.IOException" %>
 <%@ page import="java.io.PrintWriter" %>
+
+<%--@ page import= "java.util.Arrays" --%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -23,6 +25,7 @@
 	float history=0.0f;//區域變數
 	float total=0.0f;//區域變數
 	float avg=0.0f;//區域變數
+
 	boolean checkParam = (request.getParameter("chinese")!=null &&request.getParameter("chinese")!="" )&&
 						 (request.getParameter("english")!=null &&request.getParameter("english")!="" )&&
 						 (request.getParameter("math")!=null &&request.getParameter("math")!="" )&&
@@ -43,6 +46,33 @@
 		out.print("社會:"+history+"<br>");//撰寫敘述
 		out.print("總分:"+total+"<br>");//撰寫敘述
 		out.print("平均:"+avg+"<br>");//撰寫敘述
+		float[] pointarr={chinese,english,math,science,history};
+		int inofmax=0;
+		double max=0;
+		for(int i=0;i<pointarr.length;i++){
+			if(max<pointarr[i]){
+			   max=pointarr[i];
+				inofmax=i;
+			}
+		}
+		String maxclas="";
+		switch(inofmax){
+		case 0: maxclas="國文";
+				break;
+		case 1: maxclas="英文";
+				break;
+		case 2: maxclas="數學";
+				break;
+		case 3: maxclas="自然";
+				break;	
+		
+		case 4: maxclas="歷史";
+				break;
+				
+		}
+		out.print("最高分is: "+max+","+maxclas+"<br>");
+		double Weiavg=(chinese*3+english*3+math*3+science*2+history*2)/13;
+		out.print("加權平均is: "+Weiavg);
 	}
 	
 %>
@@ -112,6 +142,10 @@
 	}
 }
 %>
+
+
+
+
 
 <p>請輸入各科成績</p>
 <form method="Post">

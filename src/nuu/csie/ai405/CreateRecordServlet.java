@@ -13,21 +13,27 @@ import com.google.appengine.api.datastore.Entity;
 
 public class CreateRecordServlet extends HttpServlet {
 
-	
+	int no=0;
 	public void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		String sid=request.getParameter("sid");
+		
+//		String sid=request.getParameter("sid"+no);
 		String name=request.getParameter("name");
-		String address=request.getParameter("address");
-		String phone=request.getParameter("phone");
+		String auth=request.getParameter("auth");
+		String publi=request.getParameter("publi");
+		String pri=request.getParameter("pri");
+		String email=request.getParameter("email");
 		DatastoreService datastore = DatastoreServiceFactory.getDatastoreService();
 		Entity entity = new Entity("Profiles");//穝糤Profiles龟砰
-		entity.setProperty("SID", sid);//盢request眔sid把计砞﹚SID妮┦
+		entity.setProperty("SID", no+"");//盢request眔sid把计砞﹚SID妮┦
 		entity.setProperty("Name", name);//盢request眔Name把计砞﹚Name妮┦
-		entity.setProperty("Address", address);//盢request眔address把计砞﹚Address妮┦
-		entity.setProperty("Phone", phone);//盢request眔phone把计砞﹚Phone妮┦
+		entity.setProperty("Auth", auth);//盢request眔address把计砞﹚Address妮┦
+		entity.setProperty("Publi", publi);//盢request眔phone把计砞﹚Phone妮┦
+		entity.setProperty("Pri", pri);
+		entity.setProperty("Email", email);
 		datastore.put(entity);//盢穝糤Profiles龟砰datastoreい
+		no++;
 		response.sendRedirect("/");//旧セ
 		
 	}

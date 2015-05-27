@@ -21,10 +21,12 @@
 <table>
 	<thead>
 	  <tr>
-	  	<th>學號</th>
-	    <th>姓名</th>
-	    <th>地址</th>
-	    <th>電話</th>
+	  <th>編號</th>
+	  	<th>書名</th>
+	    <th>作者</th>
+	    <th>出版社</th>
+	    <th>價錢	</th>
+	     <th>Email</th>
 	  </tr>
 	</thead>
 	<tbody>
@@ -40,8 +42,10 @@
   <tr><%--每一個entity以表格的一列顯示出來--%>
     <td><%=entity.getProperty("SID") %></td><%--取得entity各屬性值，顯示於表格各欄--%>
     <td><%=entity.getProperty("Name") %></td><%--取得entity各屬性值，顯示於表格各欄--%>
-    <td><%=entity.getProperty("Address") %></td><%--取得entity各屬性值，顯示於表格各欄--%>
-    <td><%=entity.getProperty("Phone") %></td><%--取得entity各屬性值，顯示於表格各欄--%>
+    <td><%=entity.getProperty("Auth") %></td><%--取得entity各屬性值，顯示於表格各欄--%>
+    <td><%=entity.getProperty("Publi") %></td><%--取得entity各屬性值，顯示於表格各欄--%>
+  <td><%=entity.getProperty("Pri") %></td>
+  <td><%=entity.getProperty("Email") %></td>
   </tr>
 <%
 	}
@@ -51,14 +55,16 @@
 <!--表單在按下新增後會將數值post到/CreateRecord.doURL向CreateRecordServlet發處請求，儲存新一筆的聯絡人資料  -->
 <p>新增資料</p>
 <form action="/CreateRecord.do" method="Post">
-<p>學號</p>
-<input name="sid" type="text" placeholder="請輸入學號"/>
-<p>姓名</p>
-<input name="name"  type="text" placeholder="請輸入姓名"/>
-<p>地址</p>
-<input name="address"  type="text" placeholder="請輸入地址"/>
-<p>連絡電話</p>
-<input name="phone"  type="text" placeholder="請輸入連絡電話"/>
+<p>書名</p>
+<input name="name" type="text" placeholder="請輸入書名"/>
+<p>作者</p>
+<input name="auth"  type="text" placeholder="請輸入作者"/>
+<p>出版社</p>
+<input name="publi"  type="text" placeholder="請輸入出版社"/>
+<p>價錢</p>
+<input name="pri"  type="text" placeholder="請輸入價錢"/>
+<p>Email</p>
+<input name="email"  type="text" placeholder="請輸入Email"/>
 <input type="submit" value="新增"/>
 </form>
 
